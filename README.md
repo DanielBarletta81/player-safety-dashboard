@@ -1,73 +1,128 @@
-# React + TypeScript + Vite
+# Player Safety Command Center
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Trust & Safety operations dashboard prototype for live-service gaming platforms.
 
-Currently, two official plugins are available:
+This project simulates an internal moderation command center where safety teams can review player reports, inspect case details, apply policy actions, track audit history, and monitor operational telemetry.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Built as a role-targeted portfolio project for Software Engineer I / Trust & Safety Platform work.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Why I Built This
 
-## Expanding the ESLint configuration
+Modern multiplayer games need more than gameplay systems — they need reliable internal tools that help teams protect players, enforce policy consistently, and respond quickly to harmful behavior.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This project focuses on the engineering patterns behind those systems:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- moderation queues
+- case review workflows
+- policy action controls
+- audit logging
+- telemetry summaries
+- AI-assisted risk triage
+- clear visual feedback for moderator decisions
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+The goal was to build a small but realistic internal tool that demonstrates full-stack product thinking around player safety.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Core Workflow
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```txt
+Select report → review case → take action → update status → append audit log
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+A moderator can:
+
+Select a report from the safety queue
+Review player, game, category, severity, and report content
+Choose an action such as warn, mute, escalate, or dismiss
+Receive color-coded confirmation feedback
+See the audit log update with the action, actor, and timestamp
+Features
+Moderation Queue
+report list
+severity indicators
+active case selection
+Case Detail Panel
+player ID
+game/session context
+report category
+severity and status
+Moderator Action Console
+warn player
+temporary mute
+escalate to senior review
+dismiss report
+Audit Log
+timestamped action history
+moderator/system actor tracking
+case-specific event filtering
+Telemetry Cards
+open reports
+critical reports
+average review time
+actions today
+AI Assist Mock
+risk summary
+suggested policy category
+confidence-style signal
+human-review framing
+UX Feedback
+color-coded action states
+confirmation pulse/glaze
+clear visual separation between report data and enforcement actions
+Tech Stack
+React
+TypeScript
+Vite
+Tailwind CSS
+CSS component utilities
+Mock data layer
+Local state management with React hooks
+Trust & Safety Design Notes
+
+This dashboard intentionally separates:
+
+report facts from moderator actions
+case review from policy enforcement
+status updates from audit history
+AI assistance from human decision-making
+
+That separation matters in Trust & Safety systems because moderation tools need to be clear, accountable, and hard to misuse.
+
+The UI uses restrained color feedback:
+
+Amber = warning/caution
+Orange = restriction
+Red = escalation/high severity
+Slate = dismissal/neutral close
+Cyan = system/platform signal
+What This Demonstrates
+
+This project demonstrates my ability to:
+
+build React/TypeScript dashboard interfaces
+model operational workflows
+design internal tooling for high-stakes decisions
+create readable state-driven UI
+think through auditability and policy-sensitive actions
+translate a job description into a focused technical prototype
+Future Improvements
+
+Planned next steps:
+
+add filters by severity, status, and category
+add search by player ID or report ID
+persist audit events in local storage or a backend API
+add mock REST endpoints
+add role-based action permissions
+add charts for report volume and response time
+add unit tests for action/status transitions
+Local Development
+npm install
+npm run dev
+Project Status
+
+Active portfolio prototype.
+
+Current focus: polished frontend workflow, clear moderation UX, and strong alignment with Trust & Safety platform engineering.
