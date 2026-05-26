@@ -1,3 +1,7 @@
+## Preview
+
+![Player Safety Dashboard](./assets/Player-Safety-Dash-Preview.gif)
+
 # Player Safety Command Center
 
 A Trust & Safety operations dashboard prototype for live-service gaming platforms.
